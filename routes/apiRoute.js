@@ -10,14 +10,15 @@ router.get("/notes", (req, res) => res.json(data));
 
 router.post("/notes", (req, res) => {
   req.body.id = uuid();
-  data.push(push.body);
+  data.push(req.body);
   fs.writeFileSync(
-    path.join(__dirname, "./db/db.json"),
-    JSON.stringify(data, null, 2)
+    path.join(__dirname, "../db/db.json"),
+    JSON.stringify(data),
+    (err) => (err ? console.log(err) : console.log("Your note has been saved!"))
   );
   res.json(req.body);
 });
 
-// router delete
+// route delete
 
 module.exports = router;

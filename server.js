@@ -1,5 +1,4 @@
 const express = require("express");
-const path = require("path");
 
 const apiR = require("./routes/apiRoute");
 const htmlR = require("./routes/htmlRoute");
@@ -11,7 +10,7 @@ const app = express();
 //Middleware
 //parsing JSON
 app.use(express.json());
-//string
+//parse string
 app.use(express.urlencoded({ extended: true }));
 
 app.use(express.static("public"));
